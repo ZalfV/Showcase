@@ -1,0 +1,29 @@
+.tabHeaders {
+    max-width: 800px;
+    margin: 10px;
+}
+.tabHeaders ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+.tabHeaders ul li {
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;;
+    background: #ffffff10;
+    padding: 5px 7px;
+    margin-right: 3px;
+    cursor: pointer;
+    width: -webkit-fill-available;
+}
+
+.tabItem.selected {
+    display: block !important;
+}
+
+.tabItem {
+    display: none;
+    white-space: nowrap;
+    overflow-x: scroll;
+}
