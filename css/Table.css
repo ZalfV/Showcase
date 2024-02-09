@@ -1,6 +1,5 @@
 .tabHeaders {
     max-width: 800px;
-    margin: 10px;
 }
 .tabHeaders ul {
     list-style-type: none;
@@ -9,17 +8,20 @@
     padding: 0;
 }
 .tabHeaders ul li {
-    border-bottom: 1px solid white;
-    border-right: 1px solid white;;
-    background: #ffffff10;
+    border-bottom: 2px solid var(--accent);
+    border-right: 2px solid var(--accent);
+    background: #bdbdbd2f;
     padding: 5px 7px;
     margin-right: 3px;
     cursor: pointer;
     width: -webkit-fill-available;
+    transition: border 300ms ease-out;
+    border-bottom-right-radius: 4px;
 }
 
 .tabItem.selected {
     display: block !important;
+    border-color: var(--highlight) !important;
 }
 
 .tabItem {
