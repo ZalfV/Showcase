@@ -1,0 +1,43 @@
+.chart--horiz {
+    overflow: hidden;
+    list-style-type: none;
+    padding: 0;
+}
+.chart-bar {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 30px;
+    margin-bottom: 8px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: linear-gradient(to right, #93e1a4, #05db50);
+}
+.chart-bar.extended {
+    height: auto;
+}
+.chart-bar:has(div) {
+    cursor: pointer;
+}
+.chart-sub-skill {
+    background: linear-gradient(to right, #0000005b, #8c8c8c36);
+    color: white;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-top: 3px;
+}
+.chart-label {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 30px; /*has to match with chart-bar*/
+    font-weight: bold;
+}
+.chart-percentage {
+    color: transparent;
+    transition: color 0.1s ease-out;
+}
+.chart-bar:hover .chart-percentage {
+    color: white;
+}

@@ -18,6 +18,11 @@
     transition: border 300ms ease-out;
     border-bottom-right-radius: 4px;
 }
+.tabHeaders .active {
+    border-color: var(--text);
+    background-color: var(--background-soft);
+    font-weight: bold;
+}
 
 .tabItem.selected {
     display: block !important;

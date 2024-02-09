@@ -18,11 +18,11 @@ function ChangeTabHeader() {
 
     //reset styling
     for (const tabHeader of tabHeaders) {
-        tabHeader.style = "border-color: var(--accent);";
+        tabHeader.classList.remove("active");
     }    
 
     //mark selected tabHeader
-    this.style = "border-color: var(--text);";
+    this.classList.add("active");
 
     ChangeTab(targetTab);
 }

@@ -6,8 +6,8 @@
         <link rel="stylesheet" type="text/css" href="alt-style.css?d=<?php echo time(); ?>" />
         <link rel="stylesheet" type="text/css" href="css/GDPR.css" />
         <link rel="stylesheet" type="text/css" href="css/Table.css" />
+        <link rel="stylesheet" type="text/css" href="css/chart.css" />
         <link href="https://fonts.googleapis.com/css?family=Odibee+Sans|Oxanium&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
         <title>
             Showcase
         </title>
@@ -19,42 +19,157 @@
         <!--Header end-->
         <section class="body">
             <section class="sidebar vertical">
-                <h2>Vaardigheden</h2>
-                <div class="skills vertical">
-                    <div class="rating vertical" data-value="5">
-                        <span>HTML</span>
-                    </div>
-                    <div class="rating vertical collapsed" data-value="5">
-                        <span>CSS</span>
-                    </div>
-                    <div class="rating vertical" data-value="3">
-                        <span>PHP</span>
-                    </div>
-                    <div class="rating vertical" data-value="4">
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="rating vertical" data-value="2">
-                        <span>Node</span>
-                    </div>
-                    <div class="rating vertical" data-value="2">
-                        <span>Vue</span>
-                    </div>
-                    <div class="rating vertical" data-value="3">
-                        <span>Java</span>
-                    </div>
-                    <div class="rating vertical" data-value="2">
-                        <span>C#</span>
-                    </div>
-                    <div class="rating vertical" data-value="3">
-                        <span>Python</span>
-                    </div>
-                    <div class="rating vertical" data-value="4">
-                        <span>SQL</span>
-                    </div>
-                </div>
+                <section>
+                    <h2 class="margin">Vaardigheden</h2>
+                </section>
+                <section>
+                    <h3>
+                        Programmeren
+                    </h3>
+                    <ul class="chart--horiz">
+                        <li class="chart-bar shadowed" style="width: 90%">
+                            <span class="chart-label">
+                                HTML
+                                <span class="chart-percentage">90</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 95%">
+                            <span class="chart-label">
+                                CSS
+                                <span class="dropdown-icon">+</span>
+                                <span class="chart-percentage">95</span>
+                            </span>
+                            <div class="chart-sub-skill" style="width: 25%">
+                                <span class="chart-label">
+                                    Tailwind
+                                    <span>25</span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 70%">
+                            <span class="chart-label">
+                                JavaScript
+                                <span class="dropdown-icon">+</span>
+                                <span class="chart-percentage">70</span>
+                            </span>
+                            <div class="chart-sub-skill" style="width: 45%">
+                                <span class="chart-label">
+                                    Jquery
+                                    <span>45</span>
+                                </span>
+                            </div>
+                            <div class="chart-sub-skill" style="width: 35%">
+                                <span class="chart-label">
+                                    Node
+                                    <span>35</span>
+                                </span>
+                            </div>
+                            <div class="chart-sub-skill" style="width: 25%">
+                                <span class="chart-label">
+                                    Vue
+                                    <span>25</span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 65%">
+                            <span class="chart-label">
+                                PHP
+                                <span class="chart-percentage">65</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 55%">
+                            <span class="chart-label">
+                                C#
+                                <span class="chart-percentage">55</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 55%">
+                            <span class="chart-label">
+                                Java
+                                <span class="chart-percentage">55</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 65%">
+                            <span class="chart-label">
+                                Python
+                                <span class="chart-percentage">65</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 70%">
+                            <span class="chart-label">
+                                SQL
+                                <span class="chart-percentage">70</span>
+                            </span>
+                        </li>
+                    </ul>
+                    <h3>
+                        Algemeen
+                    </h3>
+                    <ul class="chart--horiz">
+                        <li class="chart-bar shadowed" style="width: 70%">
+                            <span class="chart-label">
+                                Communiceren
+                                <span class="chart-percentage">70</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 80%">
+                            <span class="chart-label">
+                                Plannen
+                                <span class="chart-percentage">80</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 75%">
+                            <span class="chart-label">
+                                Aansturen
+                                <span class="chart-percentage">75</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 65%">
+                            <span class="chart-label">
+                                Feedback geven
+                                <span class="chart-percentage">65</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 80%">
+                            <span class="chart-label">
+                                Feedback ontvangen
+                                <span class="chart-percentage">80</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 80%">
+                            <span class="chart-label">
+                                Samenwerken
+                                <span class="chart-percentage">80</span>
+                            </span>
+                        </li>
+                    </ul>
+                    <h3>
+                        Talen
+                    </h3>
+                    <ul class="chart--horiz">
+                        <li class="chart-bar shadowed" style="width: 99%">
+                            <span class="chart-label">
+                                Nederlands
+                                <span class="chart-percentage">100</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 99%">
+                            <span class="chart-label">
+                                Engels
+                                <span class="chart-percentage">100</span>
+                            </span>
+                        </li>
+                        <li class="chart-bar shadowed" style="width: 60%">
+                            <span class="chart-label">
+                                Duits
+                                <span class="chart-percentage">60</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
             </section>
             <section class="content">
-                <article class='' id='Profiel'>
+                <article>
                     <div class='container'>
                         <h2>Profiel</h2>
                         <p>
@@ -62,11 +177,11 @@
                         </p>
                     </div>
                 </article>
-                <article class='' id='Ervaringen'>
+                <article>
                     <h2>Ervaringen</h2>
                     <div class="container tabHeaders">
                         <ul>
-                            <li style="border-color: var(--text);">Werk</li>
+                            <li class="active">Werk</li>
                             <li>Opleidingen</li>
                             <li>Hobbies</li>
                         </ul>
@@ -79,8 +194,12 @@
                             </div>
                             <div class="tabItem" id="Opleidingen">
                                 <p>
+                                    <span>HBO-ICT</span><br>
+                                    2022-heden
+                                </p>
+                                <p>
                                     <span>mbo applicatie- & mediaontwikkeling</span><br>
-                                    2017-2020
+                                    2019-2022
                                 </p>
                             </div>
                             <div class="tabItem" id="Hobbies">
@@ -92,11 +211,25 @@
                         </div>
                     </div>
                 </article>
-                <article class='' id='Vaardigheden'>
+                <article>
+                    <h2>Hobbies</h2>
+                    <div class="container">
+                        <p>
+                            <span>Sporten</span><br>
+                            Gemiddeld sport ik vijf tot zeven keer per week. Hiermee ben ik begonnen vanaf mijn achtiende en ik bleef hier mee doorgaan te vandaag de dag.
+                        </p>
+                        <p>
+                            <span>Gamen</span><br>
+                            Bla bla bla.
+                        </p>
+                        <p>
+                            <span>Kit bouwen</span><br>
+                            Bla bla bla.
+                        </p>
+                    </div>
                 </article>
             </section>
         </section>
-        <div id='zoom' style='display: none;'><img src=''></div>
         <!-- GDPR -->
         <div class="gdpr">
             <h1 id="content-gpdr-consent-status"></h1>
@@ -112,7 +245,7 @@
                 <p>Deze content wordt alleen getoond als gdrp is verworpen.</p>
             </div>
         
-            <section class="gdpr-consent hide">
+            <section class="gdpr-consent shadowed hide">
                 <div class="gdpr-consent__description">
                     <p>Deze website gebruikt cookies.
                     We gebruiken cookies om content te personaliseren, voor social media en het analyseren
@@ -131,4 +264,5 @@
     <script src="js/tabs.js"></script>
     <script src="js/Rating.js"></script>
     <script src="js/gdpr.js"></script>
+    <script src="js/dropdown.js"></script>
 </html>

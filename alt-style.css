@@ -26,7 +26,7 @@ header {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 32 / 9;
 }
 
 button {
@@ -35,6 +35,9 @@ button {
 
 h1 {
     margin-bottom: 15px;
+}
+.margin {
+    margin: 20px;
 }
 a {
     text-decoration: none;
@@ -48,8 +51,10 @@ header {
     justify-content: center;
 }
 header h1 {
-    color: var(--accent);
+    color: white;
     text-shadow: var(--text) 0px 1px 0px;
+    align-self: end;
+    font-size: 60px;
 }
 
 /* General */
@@ -60,6 +65,9 @@ header h1 {
 .center {
     display: flex;
     margin: auto;
+}
+.shadowed {
+    box-shadow: var(--text) 1px 1px 3px;
 }
 
 /* width */
@@ -93,17 +101,12 @@ header h1 {
 }
 /* Sidebar */
 .sidebar {
-    padding: 15px;
     left: 0;
-    background-color: var(--background-soft);
+    background: linear-gradient(var(--background-soft), var(--background));
 }
-.active {
-    display: block;
-    border-color: var(--highlight);
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+.sidebar h3 {
+    margin-left: 10px;
 }
-
 /* Content */
 .content {
     padding: 15px;
@@ -164,6 +167,9 @@ article {
     max-width: 512px;
     max-height: 512px;
 }
+.dropdown-icon {
+    margin-right: 5px;
+}
 
 @media screen and (min-width: 800px) {
     .body {
@@ -171,7 +177,7 @@ article {
     }
     
     .sidebar {
-        max-width: 300px;
+        width: 400px;
     }
 
     .content {
