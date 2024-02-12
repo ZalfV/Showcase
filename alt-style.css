@@ -104,9 +104,6 @@ header h1 {
     left: 0;
     background: linear-gradient(var(--background-soft), var(--background));
 }
-.sidebar h3 {
-    margin-left: 10px;
-}
 /* Content */
 .content {
     padding: 15px;
@@ -169,6 +166,9 @@ article {
 }
 .dropdown-icon {
     margin-right: 5px;
+}
+.extended {
+    max-height: 500px !important;
 }
 
 @media screen and (min-width: 800px) {

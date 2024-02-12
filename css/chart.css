@@ -2,19 +2,20 @@
     overflow: hidden;
     list-style-type: none;
     padding: 0;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
 }
 .chart-bar {
     display: flex;
     flex-direction: column;
+    user-select: none;
     overflow: hidden;
-    height: 30px;
+    max-height: 30px;
     margin-bottom: 8px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     background: linear-gradient(to right, #93e1a4, #05db50);
-}
-.chart-bar.extended {
-    height: auto;
+    transition: max-height 0.7s ease;
 }
 .chart-bar:has(div) {
     cursor: pointer;
@@ -33,6 +34,7 @@
     margin-right: 10px;
     line-height: 30px; /*has to match with chart-bar*/
     font-weight: bold;
+    white-space: nowrap;
 }
 .chart-percentage {
     color: transparent;
@@ -40,4 +42,11 @@
 }
 .chart-bar:hover .chart-percentage {
     color: white;
+}
+.chart-header {
+    user-select: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 10px;
+    background: linear-gradient(to right, #0000001d, transparent);
 }
