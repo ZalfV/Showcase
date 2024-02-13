@@ -1,50 +1,49 @@
-var slideTimer = window.setTimeout("slideRight()", 5000);
+let slideTimer = window.setTimeout("slideRight()", 5000);
+let themeIndex = 1;
 
-// $(document).ready(function() {
-//     slideTimer;
-// })
+$(document).ready(function() {
+    initDarkMode();
 
-/*active sub-catagorie*/
-$('.catagories').click(changeCategory);
+    // bind event to dark mode button
+    $('.body').on('click', ".button-darkmode", function() {
+        toggleDarkMode();
+    });
+    // bind event to theme button
+    $('.body').on('click', ".button-theme", function() {
+        changeAccentColor();
+    });
+    // slideTimer;
+})
 
-function changeCategory() {
-    var catagorie = $(this).children().text();
-    if ($('.content#' + catagorie).is(":hidden"))
-        $('.catagories').removeClass('active');
-        $(this).addClass('active');
-        $('.content#' + catagorie).click();
-}
-
-/*active sub-catagorie content*/
-$('.content').click(expandCategoryContent);
-
-function expandCategoryContent() {
-    if ($(this).is(":hidden")) {
-        $('.content').hide();
-        var clicked_id = $(this).attr('id');
-        $('.content#' + clicked_id).animate({
-            left: '+=50',
-            height: 'toggle'
-        }, 500, function () {}).show();
-    };
-    var catagories = $('div.catagories');
-    for(i = 0; i > catagories.length; i++) {
-        if (catagories[i].hasClass('active')) {
-            catagories[i].removeClass('active')
-        }
+function initDarkMode() {
+    // if no local theme saved create new one
+    if (localStorage.getItem("theme") != null) {
+        $(document.body).attr("data-theme", localStorage.getItem("theme"));
+    } else {
+        $(document.body).attr("data-theme", "light");
+        localStorage.setItem("theme", "light");
     }
 }
 
-/*zoom*/
-$('.container').find('img').click(function() {
-    var clicked_img = $(this).attr('src');
-    $('#zoom img').attr('src', clicked_img);
-    $('#zoom').show();
-});
-$('#zoom').click(function() {
-    $('#zoom').hide();
-    $('#zoom img').attr('src', '');
-});
+function toggleDarkMode() {
+    if ($(document.body).attr("data-theme") == "light") {
+        $(document.body).attr("data-theme", "dark");
+    } else {
+        $(document.body).attr("data-theme", "light");
+    }
+
+    localStorage.setItem("theme", $(document.body).attr("data-theme"));
+}
+
+function changeAccentColor() {
+    // loop themeIndex
+    (themeIndex < 4) ? themeIndex += 1 : themeIndex = 0;
+
+    // r,g,b,orange,purple
+    let colors = ["#FF3333","#70a636","#33BFFF","#FF5733","#B533FF"];
+
+    document.documentElement.style.setProperty("--accent", colors[themeIndex]);
+}
 
 /*slideshow*/
 function slideRight() {

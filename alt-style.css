@@ -1,11 +1,16 @@
 :root {
     /* --background: #121212;
     --accent: #70a636; */
-    --background: #ffffff;
+    --background: white;
     --background-soft: #e6e6e6;
     --accent: #70a636;
     --highlight: #84ff00;
     --text: black;
+}
+[data-theme="dark"] {
+    --background: black;
+    --background-soft: #333;
+    --text: white;
 }
 
 body {
@@ -16,6 +21,7 @@ body {
     /* background: linear-gradient(to bottom, transparent 50%, var(--background) 50%),
                 linear-gradient(to right, var(--background-soft) 50%, var(--background) 50%); */
     background-color: var(--background);
+    color: var(--text);
     background-size: 10px 10px;
     height: 100%;
     width: 100%;
@@ -81,10 +87,12 @@ header h1 {
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #87ac5f;
+    /* background: #87ac5f; */
+    background: #ababab;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #51742b;
+    /* background: #51742b; */
+    background: #747474;
 }
 
 .contact-form {
@@ -140,7 +148,6 @@ header h1 {
 }
 article {
     border-top: 1px solid var(--accent);
-    color: var(--text);
 }
 
 .bordered {
@@ -159,42 +166,11 @@ article {
 .container p {
     margin: 10px;
 }
-
-/*footer*/
-.footer {
-    width: 100%;
-    position: absolute;
-    height: 65px;
-    bottom: 0px;
-    background: var(--background);
-    border-top: 2px solid var(--accent);
-}
-.footer p {
-    width: fit-content;
-    color: #e1ffe5;
-    padding-top: 25px;
-    margin: auto;
-}
-/*zoom*/
-#zoom {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-color: #0000005b;
-    cursor: pointer;
-}
-#zoom img {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    margin-top: 175px;
-    max-width: 512px;
-    max-height: 512px;
-}
 .dropdown-icon {
     margin-right: 5px;
+    background-image: url("/css/Support/arrow-w.png");
+    height: 20px;
+    width: 20px;
 }
 .extended {
     max-height: 500px !important;

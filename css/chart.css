@@ -35,6 +35,7 @@
     line-height: 30px; /*has to match with chart-bar*/
     font-weight: bold;
     white-space: nowrap;
+    color: black;
 }
 .chart-percentage {
     color: transparent;
@@ -44,6 +45,8 @@
     color: white;
 }
 .chart-header {
+    display: flex;
+    justify-content: space-between;
     user-select: none;
     cursor: pointer;
     margin: 0;

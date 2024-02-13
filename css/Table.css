@@ -30,5 +30,4 @@
 }
 .tabItem.selected {
     max-height: 1000px;
-    border-color: var(--highlight) !important;
 }
