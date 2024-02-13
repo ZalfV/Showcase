@@ -87,6 +87,35 @@ header h1 {
     background: #51742b;
 }
 
+.contact-form {
+    display: flex;
+    flex-direction: column;   
+}
+.form-row {
+    display: flex;
+    flex-basis: 50%;
+    margin-top: 5px;
+}
+.contact-form label {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+.contact-form input {
+    max-width: 30%;
+}
+.contact-list {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    flex-wrap: wrap;
+    padding:0;
+}
+.contact-list li {
+    flex-basis: 50%;
+}
+.contact-list a {
+    text-decoration: underline;
+}
 .body {
     display: flex;
     flex-direction: column;
@@ -107,7 +136,7 @@ header h1 {
 /* Content */
 .content {
     padding: 15px;
-    width: 100%;
+    width: 95%;
 }
 article {
     border-top: 1px solid var(--accent);
@@ -182,5 +211,9 @@ article {
 
     .content {
         background-color: var(--background);
+    }
+
+    .contact-list {
+        flex-direction: column;
     }
 }

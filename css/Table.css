@@ -23,14 +23,12 @@
     background-color: var(--background-soft);
     font-weight: bold;
 }
-
-.tabItem.selected {
-    display: block !important;
-    border-color: var(--highlight) !important;
-}
-
 .tabItem {
-    display: none;
+    max-height: 0px;
     white-space: nowrap;
     overflow-x: scroll;
+}
+.tabItem.selected {
+    max-height: 1000px;
+    border-color: var(--highlight) !important;
 }

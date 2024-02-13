@@ -1,8 +1,8 @@
 var slideTimer = window.setTimeout("slideRight()", 5000);
 
-$(document).ready(function() {
-    slideTimer;
-})
+// $(document).ready(function() {
+//     slideTimer;
+// })
 
 /*active sub-catagorie*/
 $('.catagories').click(changeCategory);
