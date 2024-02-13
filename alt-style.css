@@ -3,7 +3,7 @@
     --accent: #70a636; */
     --background: white;
     --background-soft: #e6e6e6;
-    --accent: #70a636;
+    --accent: #90d546;
     --highlight: #84ff00;
     --text: black;
 }
@@ -160,8 +160,10 @@ article {
 }
 .container span {
     color: var(--accent);
-    text-shadow: teal 1px 1px 1px;
+    text-shadow: #333 1px 0px 0px;
     text-transform: capitalize;
+    font-weight: bold;
+    font-size: 18px;
 }
 .container p {
     margin: 10px;

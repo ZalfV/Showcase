@@ -1,8 +1,11 @@
 let slideTimer = window.setTimeout("slideRight()", 5000);
 let themeIndex = 1;
+// r,g,b,orange,purple
+let colors = ["#FF3333","#70a636","#33BFFF","#FF5733","#B533FF"];
 
 $(document).ready(function() {
     initDarkMode();
+    initAccentTheme();
 
     // bind event to dark mode button
     $('.body').on('click', ".button-darkmode", function() {
@@ -10,7 +13,7 @@ $(document).ready(function() {
     });
     // bind event to theme button
     $('.body').on('click', ".button-theme", function() {
-        changeAccentColor();
+        changeAccentTheme();
     });
     // slideTimer;
 })
@@ -21,28 +24,41 @@ function initDarkMode() {
         $(document.body).attr("data-theme", localStorage.getItem("theme"));
     } else {
         $(document.body).attr("data-theme", "light");
-        localStorage.setItem("theme", "light");
+
+        setLocalTheme("light");
+    }
+}
+
+function initAccentTheme() {
+    if (localStorage.getItem("accentTheme") != null) {
+        document.documentElement.style.setProperty("--accent", colors[localStorage.getItem("accentTheme")]);
+    } else {
+        // set to second color
+        setLocalAccentTheme(1);
     }
 }
 
 function toggleDarkMode() {
-    if ($(document.body).attr("data-theme") == "light") {
-        $(document.body).attr("data-theme", "dark");
-    } else {
-        $(document.body).attr("data-theme", "light");
-    }
+    ($(document.body).attr("data-theme") == "light") ? $(document.body).attr("data-theme", "dark") : $(document.body).attr("data-theme", "light");
 
-    localStorage.setItem("theme", $(document.body).attr("data-theme"));
+    setLocalTheme($(document.body).attr("data-theme"));
 }
 
-function changeAccentColor() {
-    // loop themeIndex
+function changeAccentTheme() {
+    // themeIndex overflow handling
     (themeIndex < 4) ? themeIndex += 1 : themeIndex = 0;
 
-    // r,g,b,orange,purple
-    let colors = ["#FF3333","#70a636","#33BFFF","#FF5733","#B533FF"];
-
     document.documentElement.style.setProperty("--accent", colors[themeIndex]);
+
+    setLocalAccentTheme(themeIndex);
+}
+
+function setLocalTheme(value) {
+    localStorage.setItem("theme", value);
+}
+
+function setLocalAccentTheme(accentIndex) {
+    localStorage.setItem("accentTheme", accentIndex);
 }
 
 /*slideshow*/

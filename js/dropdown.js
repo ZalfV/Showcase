@@ -1,5 +1,5 @@
 $(".chart-bar").click(dropdown);
-$(".chart-header").click(dropdown2);
+$(".chart-header").click(headerDropdown);
 
 
 function dropdown() {
@@ -14,14 +14,15 @@ function dropdown() {
     }
 }
 
-function dropdown2() {
+function headerDropdown() {
     let targetElement = $(this).next()[0];
 
     if (!targetElement.classList.contains("extended")) {
         targetElement.classList.add("extended");
-        $(this).find(".dropdown-icon")[0].innerHTML = "-"
+        // -180 so it rotates left
+        $(this).find("i")[0].style = "transform: rotate(-180deg)";
     } else if (targetElement.classList.contains("extended")) {
         targetElement.classList.remove("extended");
-        $(this).find(".dropdown-icon")[0].innerHTML = "+"
+        $(this).find("i")[0].style = "";
     }
 }
