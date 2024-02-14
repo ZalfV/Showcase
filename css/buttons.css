@@ -1,19 +1,15 @@
-.button-theme {
+.button-theme, .button-darkmode {
   background-color: var(--background);
   border: 2px solid var(--accent);
   border-radius: 8px;
-  color: var(--accent);
+  color: var(--text);
   padding: 8px;
   font-weight: bold;
-  margin: 5px;
 }
 
-.button-darkmode {
-  background-color: var(--background);
-  border: 2px solid var(--accent);
-  border-radius: 8px;
-  color: var(--accent);
-  margin: 10px;
-  padding: 10px;
-  max-width: 100px;
+.theme-buttons {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid var(--accent);
+  padding-top: 10px;
 }

@@ -5,16 +5,20 @@
             <h3></h3>
             <form class="contact-form" method="POST">
                 <div class="form-row">
-                    <label for="name">Name</label>
+                    <label for="name" required>Name</label>
                     <input name="name" type="text" placeholder="name">
+                </div>
+                <div class="form-row">
+                    <label for="email" required>Onderwerp</label>
+                    <input name="email" type="text" placeholder="onderwerp">
+                </div>
+                <div class="form-row">
+                    <label for="email" required>E-mail</label>
+                    <input name="email" type="text" placeholder="e-mail">
                 </div>
                 <div class="form-row">
                     <label for="phone">Phone</label>
                     <input name="phone" type="number" placeholder="phonenumber">
-                </div>
-                <div class="form-row">
-                    <label for="email">E-mail</label>
-                    <input name="email" type="text" placeholder="e-mail">
                 </div>
             </form>
         </article>
