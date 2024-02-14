@@ -1,7 +1,7 @@
 let slideTimer = window.setTimeout("slideRight()", 5000);
 let themeIndex = 1;
 // r,g,b,orange,purple
-let colors = ["#FF3333","#70a636","#33BFFF","#FF5733","#B533FF"];
+let colors = ["#FF3333","#88e524","#33BFFF","#FF5733","#B533FF"];
 
 $(document).ready(function() {
     initDarkMode();

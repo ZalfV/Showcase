@@ -23,6 +23,6 @@ function headerDropdown() {
         $(this).find("i")[0].style = "transform: rotate(-180deg)";
     } else if (targetElement.classList.contains("extended")) {
         targetElement.classList.remove("extended");
-        $(this).find("i")[0].style = "";
+        $(this).find("i")[0].style = "transform: rotate(-90deg)";
     }
 }
