@@ -30,6 +30,7 @@ function slideRight() {
         }
     };
 }
+
 $('.slideButton').click(function() {
     var slides = $('.slideshow > .slides').find('img');
     for(i = 0; i < slides.length; i++) {

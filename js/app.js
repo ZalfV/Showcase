@@ -1,32 +1,11 @@
 
 $(document).ready(function() {
     $(".contact-form .captcha-confirm").on('click', function() {
-        SendMail();
+        (formFieldsCheck())? sendMail() : null;
     });
 });
-$(".captcha-confirm").click();
 
-function chaptchaCheck() {
-    // if captcha correct flash good && waardes goed
-    if (true) {
-        formContent = getFields();
-    }
-        // check all inputs
-        //if correct call method for enabling submit button
-    // if incorrect flash incorrect
-}
-
-function formFieldsCheck(fomrContent) {
-    const formContent = GetFields();
-
-    fomrContent.FirstName
-}
-
-function checkField(field) {
-    field
-}
-
-function GetFields() {
+function getFields() {
     const form = $(".contact-form")[0];
 
     const formContent = {
@@ -41,8 +20,26 @@ function GetFields() {
     return formContent
 }
 
-async function SendMail() {
-    const fields = GetFields();
+function formFieldsCheck() {
+    const formContent = getFields();
+    let allFieldCorrect = true;
+
+    for(let field of formContent) {
+        if (!checkField(field)) allFieldCorrect = false;
+    }
+
+    if (allFieldCorrect) return true;
+}
+
+// Is field correctly formatted
+function checkField(field) {
+    if (field instanceof HTMLElement && field.length > 1) {
+        return (field == $("#"+field))? true : false;
+    }
+}
+
+async function sendMail() {
+    const fields = getFields();
 
     try {
         let response = await fetch('http://localhost:5136/Mail', {
