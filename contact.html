@@ -14,46 +14,68 @@
         </title>
     </head>
     <body>
-        <article>
-            <a href="index.html">home</a>
-            <h3></h3>
-            <form class="contact-form" id="contact-form" method="POST">
+        <article class="contact">
+            <h3>
+                <a href="index.html">home</a>
+            </h3>
+            <form class="contact-form" id="contact-form">
                 <div class="form-row">
                     <div class="form-col">
-                        <label>Naam *</label>
-                        <input required name="firstName" type="text" placeholder="Voornaam">
+                        <label for="firstName">
+                            <i class="fa fa-user"></i>
+                            Naam *
+                        </label>
+                        <input required id="firstName" name="firstName" type="text" placeholder="Voornaam">
                     </div>
                     <div class="form-col">
                         <label>&nbsp;</label>
-                        <input required name="lastName" type="text" placeholder="Achternaam">
+                        <input required id="lastName" name="lastName" type="text" placeholder="Achternaam">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-col">
-                        <label for="email" required min-length="8">E-mail *</label>
-                        <input required name="email" type="email" placeholder="Mail@mail.com">
+                        <label for="email" required>
+                            <i class="fa fa-envelope"></i>
+                            E-mail *
+                        </label>
+                        <input required id="senderEmail" name="email" type="email" placeholder="Mail@mail.com">
                     </div>
                     <div class="form-col">
-                        <label for="phone">Telefoon</label>
-                        <input  name="phone" type="tel" placeholder="Nummer">
+                        <label for="phone">
+                            <i class="fa fa-phone"></i>
+                            Telefoon
+                        </label>
+                        <input id="phone" name="phone" type="tel" placeholder="Nummer">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-col">
-                        <label for="subject" required>Onderwerp *</label>
-                        <input required name="subject" type="text" placeholder="Onderwerp van bericht">
+                        <label for="subject" required>
+                            <i class="fa fa-book"></i>
+                            Onderwerp *
+                        </label>
+                        <input required id="subject" name="subject" type="text" placeholder="Onderwerp van bericht" maxlength="200">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-col">
-                        <label for="body" required>Bericht *</label>
-                        <textarea required name="body" type="textArea" placeholder="Type hier uw bericht"></textarea>
+                        <label for="body" required>
+                            <i class="fa fa-comments"></i>
+                            Bericht *
+                        </label>
+                        <textarea required id="body" name="body" type="textArea" placeholder="Type hier uw bericht" maxlength="600">
+                            <span class="word-count">600/600</span>
+                        </textarea>
                     </div>
                 </div>
-                <div class="form-row">
-                    <input type="submit" value="Versturen">
+                <div class="form-row right">
+                    <button type="button" class="captcha-confirm">test</button>
+                    <input class="form-submit" type="button" value="Versturen">
                 </div>
             </form>
         </article>
     </body>
+    <script src="https://kit.fontawesome.com/ec21e68940.js" crossorigin="anonymous"></script>
+    <script defer src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script defer src="js/app.js"></script>
 </html>

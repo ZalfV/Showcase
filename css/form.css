@@ -1,9 +1,16 @@
+.contact {
+    display: flex;
+    justify-content: center;
+}
 .contact-form {
     display: flex;
     flex-direction: column;
+    max-width: 600px;
 }
-.contact-form input {
+.contact-form input, .contact-form textarea {
     min-height: 40px;
+    border: 1px solid var(--text);
+    border-radius: 8px;
 }
 .form-row {
     display: flex;
@@ -15,4 +22,8 @@
     flex-direction: column;
     padding: 5px;
     width: 100%;
+}
+.right {
+    justify-content: right;
+    margin-right: 5px;
 }

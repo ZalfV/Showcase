@@ -15,10 +15,6 @@ $(document).ready(function() {
     // slideTimer;
 })
 
-fetch("ShowcaseAPI/GetMail", {
-    body: new FormData(document.getElementById("contact-form"))
-})
-
 /*slideshow*/
 function slideRight() {
     var slides = $('.slideshow > .slides').find('img');
