@@ -1,0 +1,18 @@
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+.contact-form input {
+    min-height: 40px;
+}
+.form-row {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 50%;
+}
+.form-col {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 100%;
+}

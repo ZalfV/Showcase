@@ -1,24 +1,57 @@
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="alt-style.css?d=<?php echo time(); ?>" />
+        <link rel="stylesheet" type="text/css" href="css/GDPR.css" />
+        <link rel="stylesheet" type="text/css" href="css/Table.css" />
+        <link rel="stylesheet" type="text/css" href="css/chart.css" />
+        <link rel="stylesheet" type="text/css" href="css/buttons.css" />
+        <link rel="stylesheet" type="text/css" href="css/form.css" />
+        <link href="https://fonts.googleapis.com/css?family=Odibee+Sans|Oxanium&display=swap" rel="stylesheet">
+        <title>
+            Showcase
+        </title>
+    </head>
     <body>
         <article>
             <a href="index.html">home</a>
             <h3></h3>
-            <form class="contact-form" method="POST">
+            <form class="contact-form" id="contact-form" method="POST">
                 <div class="form-row">
-                    <label for="name" required>Name</label>
-                    <input name="name" type="text" placeholder="name">
+                    <div class="form-col">
+                        <label>Naam *</label>
+                        <input required name="firstName" type="text" placeholder="Voornaam">
+                    </div>
+                    <div class="form-col">
+                        <label>&nbsp;</label>
+                        <input required name="lastName" type="text" placeholder="Achternaam">
+                    </div>
                 </div>
                 <div class="form-row">
-                    <label for="email" required>Onderwerp</label>
-                    <input name="email" type="text" placeholder="onderwerp">
+                    <div class="form-col">
+                        <label for="email" required min-length="8">E-mail *</label>
+                        <input required name="email" type="email" placeholder="Mail@mail.com">
+                    </div>
+                    <div class="form-col">
+                        <label for="phone">Telefoon</label>
+                        <input  name="phone" type="tel" placeholder="Nummer">
+                    </div>
                 </div>
                 <div class="form-row">
-                    <label for="email" required>E-mail</label>
-                    <input name="email" type="text" placeholder="e-mail">
+                    <div class="form-col">
+                        <label for="subject" required>Onderwerp *</label>
+                        <input required name="subject" type="text" placeholder="Onderwerp van bericht">
+                    </div>
                 </div>
                 <div class="form-row">
-                    <label for="phone">Phone</label>
-                    <input name="phone" type="number" placeholder="phonenumber">
+                    <div class="form-col">
+                        <label for="body" required>Bericht *</label>
+                        <textarea required name="body" type="textArea" placeholder="Type hier uw bericht"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <input type="submit" value="Versturen">
                 </div>
             </form>
         </article>

@@ -95,22 +95,6 @@ header h1 {
     background: #747474;
 }
 
-.contact-form {
-    display: flex;
-    flex-direction: column;   
-}
-.form-row {
-    display: flex;
-    flex-basis: 50%;
-    margin-top: 5px;
-}
-.contact-form label {
-    margin-top: 5px;
-    margin-right: 5px;
-}
-.contact-form input {
-    max-width: 30%;
-}
 .contact-list {
     display: flex;
     flex-direction: row;

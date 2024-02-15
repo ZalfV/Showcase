@@ -1,7 +1,4 @@
 let slideTimer = window.setTimeout("slideRight()", 5000);
-let themeIndex = 1;
-// r,g,b,orange,purple
-let colors = ["#FF3333","#88e524","#33BFFF","#FF5733","#B533FF"];
 
 $(document).ready(function() {
     initDarkMode();
@@ -18,48 +15,9 @@ $(document).ready(function() {
     // slideTimer;
 })
 
-function initDarkMode() {
-    // if no local theme saved create new one
-    if (localStorage.getItem("theme") != null) {
-        $(document.body).attr("data-theme", localStorage.getItem("theme"));
-    } else {
-        $(document.body).attr("data-theme", "light");
-
-        setLocalTheme("light");
-    }
-}
-
-function initAccentTheme() {
-    if (localStorage.getItem("accentTheme") != null) {
-        document.documentElement.style.setProperty("--accent", colors[localStorage.getItem("accentTheme")]);
-    } else {
-        // set to second color
-        setLocalAccentTheme(1);
-    }
-}
-
-function toggleDarkMode() {
-    ($(document.body).attr("data-theme") == "light") ? $(document.body).attr("data-theme", "dark") : $(document.body).attr("data-theme", "light");
-
-    setLocalTheme($(document.body).attr("data-theme"));
-}
-
-function changeAccentTheme() {
-    // themeIndex overflow handling
-    (themeIndex < 4) ? themeIndex += 1 : themeIndex = 0;
-
-    document.documentElement.style.setProperty("--accent", colors[themeIndex]);
-
-    setLocalAccentTheme(themeIndex);
-}
-
-function setLocalTheme(value) {
-    localStorage.setItem("theme", value);
-}
-
-function setLocalAccentTheme(accentIndex) {
-    localStorage.setItem("accentTheme", accentIndex);
-}
+fetch("ShowcaseAPI/GetMail", {
+    body: new FormData(document.getElementById("contact-form"))
+})
 
 /*slideshow*/
 function slideRight() {
