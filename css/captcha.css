@@ -24,6 +24,9 @@
     margin: 0px 10px;
     cursor: pointer;
 }
+.captcha-input {
+    margin-left: 5px;
+}
 
 .error-contact-message {
     position: absolute;

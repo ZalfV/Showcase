@@ -44,7 +44,7 @@ function captchaVisual() {
 
 // Runs only when captcha button is pressed
 function unlockSubmit() {
-    if (captchaCheck()) {
+    if (formFieldsCheck()) {
         $(".form-submit")[0].disabled = false;
     } else { 
         $(".form-submit")[0].disabled = true;

@@ -44,6 +44,7 @@
 }
 .chart-bar:hover .chart-percentage {
     color: white;
+    text-shadow: grey 0px 0px 2px;
 }
 .chart-header {
     display: flex;

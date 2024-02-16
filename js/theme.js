@@ -1,3 +1,17 @@
+$(document).ready(function() {
+    initDarkMode();
+    initAccentTheme();
+
+    // bind event to dark mode button
+    $('.body').on('click', ".button-darkmode", function() {
+        toggleDarkMode();
+    });
+    // bind event to theme button
+    $('.body').on('click', ".button-theme", function() {
+        changeAccentTheme();
+    });
+    // slideTimer;
+})
 
 let themeIndex = 1;
 // r,g,b,orange,purple
