@@ -16,6 +16,7 @@
     </head>
     <body>
         <article class="contact">
+            <div class="error-contact-message" style="display: none"></div>
             <h3>
                 <a href="index.html">home</a>
             </h3>
@@ -39,7 +40,7 @@
                             <i class="fa fa-envelope"></i>
                             E-mail *
                         </label>
-                        <input required id="senderEmail" name="email" type="email" placeholder="Mail@mail.com">
+                        <input required id="senderEmail" name="email" type="email" placeholder="E-mail">
                     </div>
                     <div class="form-col">
                         <label for="phone">
@@ -71,9 +72,9 @@
                 </div>
                 <div class="form-row right">
                     <input type="text" class="captcha-input" placeholder="Captcha code">
-                    <i class="fa fa-rotate-right" onclick="generateCaptcha()"></i>
+                    <i class="fa fa-rotate-right captcha-restart" onclick="generateCaptcha()"></i>
                     <div class="captcha"></div>
-                    <button type="button" class="captcha-confirm">Submit</button>
+                    <button type="button" class="captcha-confirm">Invoeren</button>
                     <input class="form-submit" type="button" value="Versturen">
                 </div>
             </form>

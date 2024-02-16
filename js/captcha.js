@@ -1,5 +1,8 @@
 $(document).ready(function() {
     generateCaptcha();
+    // Clear visuals after filling captcha
+    captchaVisual();
+    unlockSubmit();
 
     $(".captcha-input").on("input", function() {captchaVisual();});
     $(".captcha-confirm").on("click", function() {unlockSubmit()});
@@ -27,11 +30,7 @@ function generateCaptcha() {
     }
  
     // Store generated input
-    captcha.innerHTML = uniquechar;
-
-    // Clear visuals after filling captcha
-    captchaVisual();
-    unlockSubmit();
+    captcha.innerHTML = uniquechar;    
 }
 
 function captchaCheck() {
@@ -45,7 +44,14 @@ function captchaVisual() {
 
 // Runs only when captcha button is pressed
 function unlockSubmit() {
-    (captchaCheck())? $(".form-submit")[0].disabled = false : $(".form-submit")[0].disabled = true;
+    if (captchaCheck()) {
+        $(".form-submit")[0].disabled = false;
+    } else { 
+        $(".form-submit")[0].disabled = true;
+        // change so captcha check and submit are same button
+        generateCaptcha();
+        captchaVisual();
+    }
 }
 
 function printmsg() {

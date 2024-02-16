@@ -1,9 +1,11 @@
 
 $(document).ready(function() {
     $(".contact-form .captcha-confirm").on('click', function() {
-        (formFieldsCheck())? sendMail() : null;
+        (captchaCheck())? formFieldsCheck() : flashIncorrect();
     });
 });
+
+let incorrectFields = [];
 
 function getFields() {
     const form = $(".contact-form")[0];
@@ -24,19 +26,63 @@ function formFieldsCheck() {
     const formContent = getFields();
     let allFieldCorrect = true;
 
-    for(let field of formContent) {
-        if (!checkField(field)) allFieldCorrect = false;
+    for(let field in formContent) {
+        formContent[field] = sanitizeInput(formContent[field]);
+        
+        if (!checkField(formContent[field])) {
+            allFieldCorrect = false
+            // Insert field value into array
+            incorrectFields.push($("#"+field)[0].getAttribute("placeholder"));
+        };
     }
 
-    if (allFieldCorrect) return true;
+    if (allFieldCorrect) {
+        return true
+    } else {
+        flashIncorrect();
+    };
+}
+
+function flashIncorrect() {
+    let errorMessage = "";
+
+    // If captcha is not correct don't input fields into error message
+    if (incorrectFields.length > 0) {
+        for (let incorrectField in incorrectFields) {
+            errorMessage += incorrectFields[incorrectField] + " is niet goed ingevuld, ";
+        }
+    
+        // Reset incorrect fields
+        incorrectFields = [];
+    } else {
+        errorMessage = "Captcha is incorrect";
+    }
+
+    // Fill error message
+    $(".error-contact-message")[0].innerHTML = errorMessage;
+    $(".error-contact-message").show();
+    // Timer for hiding flash message
+    startTimer(3000)
+}
+
+// Asynchronous function to create a timer
+async function startTimer(timeInMs) {
+    await new Promise(resolve => setTimeout(resolve, timeInMs));
+    $(".error-contact-message").hide();
 }
 
 // Is field correctly formatted
-function checkField(field) {
-    if (field instanceof HTMLElement && field.length > 1) {
-        return (field == $("#"+field))? true : false;
+function checkField(fieldValue) {
+    if (fieldValue.length > 1) {
+        return true;
     }
+    return false;
 }
+
+function sanitizeInput(input) {
+    // Implement proper escaping logic
+    return input.replace(/"/g, '""');
+  }
 
 async function sendMail() {
     const fields = getFields();
