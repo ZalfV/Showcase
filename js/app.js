@@ -2,6 +2,8 @@
 $(document).ready(function() {
     $(".contact-form .captcha-confirm").on('click', function() {
         (captchaCheck())? formFieldsCheck() : flashIncorrect();
+    });$(".contact-form .form-submit").on('click', function() {
+        sendMail();
     });
 });
 
@@ -62,11 +64,19 @@ function flashIncorrect() {
     $(".error-contact-message")[0].innerHTML = errorMessage;
     $(".error-contact-message").show();
     // Timer for hiding flash message
-    startTimer(3000)
+    startFlashTimer(3000)
+}
+
+function flashMailError() {
+    // Fill error message
+    $(".error-contact-message")[0].innerHTML = "Onverwachte error ontstaan, mail niet verstuurd.";
+    $(".error-contact-message").show();
+    // Timer for hiding flash message
+    startFlashTimer(3000)
 }
 
 // Asynchronous function to create a timer
-async function startTimer(timeInMs) {
+async function startFlashTimer(timeInMs) {
     await new Promise(resolve => setTimeout(resolve, timeInMs));
     $(".error-contact-message").hide();
 }
@@ -85,17 +95,17 @@ function sanitizeInput(input) {
   }
 
 async function sendMail() {
-    const fields = getFields();
+    const mailContent = getFields();
 
     try {
         let response = await fetch('http://localhost:5136/Mail', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(fields)
+            body: JSON.stringify(mailContent)
         });
     }
     catch(error) {
-
+        flashMailError();
     }
 }
 
