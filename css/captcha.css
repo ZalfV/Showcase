@@ -28,11 +28,12 @@
     margin-left: 5px;
 }
 
-.error-contact-message {
+.flash-message {
     position: absolute;
-    display: flex;
-    justify-content: center;
+    list-style-type: none;
     margin: auto;
+    margin-top: 10px;
+    padding: 10px;
     max-width: 600px;
     font-weight: bold;
     background-color: #d34b4bee;
