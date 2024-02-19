@@ -2,10 +2,18 @@ $(document).ready(function() {
     generateCaptcha();
     // Clear visuals after filling captcha
     captchaVisual();
+    // Maybe remove cuz it triggers flashmessage
     unlockSubmit();
 
     $(".captcha-input").on("input", function() {captchaVisual();});
-    $(".captcha-confirm").on("click", function() {unlockSubmit()});
+    $(".captcha-confirm").on("click", function() {
+        if (captchaCheck()) {
+            unlockSubmit();
+        } else {
+            flashIncorrect(3000, $(".flash-message"));
+            generateCaptcha();
+        }
+    });
 });
 
 let captcha;
@@ -48,6 +56,7 @@ function unlockSubmit() {
         $(".form-submit")[0].disabled = false;
     } else { 
         $(".form-submit")[0].disabled = true;
+        flashIncorrect(3000, $(".flash-message"));
         // change so captcha check and submit are same button
         generateCaptcha();
         captchaVisual();

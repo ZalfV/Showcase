@@ -1,14 +1,8 @@
-
 $(document).ready(function() {
     prepareFields();
 
-    $(".contact-form .captcha-confirm").on('click', function() {
-        (captchaCheck())? formFieldsCheck() : flashIncorrect();
-    });$(".contact-form .form-submit").on('click', function() {
-        sendMail();
-    });
     $(".contact-form .form-submit").on('click', function() {
-        (formFieldsCheck)? safegaurdFields() : flashIncorrect();
+        (formFieldsCheck)? safegaurdFields() : flashIncorrect(3000, $(".flash-message"));
     });
 });
 
@@ -87,7 +81,7 @@ function flashIncorrect() {
     $(".flash-message")[0].innerHTML = errorMessage;
     $(".flash-message").show();
     // Timer for hiding flash message
-    startFlashTimer(3000)
+    startFlashTimer(3000, $(".flash-message"))
 }
 
 function flashMailError() {
@@ -95,7 +89,7 @@ function flashMailError() {
     $(".error-contact-message")[0].innerHTML = "Onverwachte error ontstaan, mail niet verstuurd.";
     $(".error-contact-message").show();
     // Timer for hiding flash message
-    startFlashTimer(3000)
+    startFlashTimer(3000, $(".flash-message"))
 }
 
 // Asynchronous function to create a timer
@@ -163,7 +157,6 @@ async function sendMail() {
     const mailContent = getFields();
 
     try {
-
         // API call to send mail
         let response = await fetch('http://localhost:5136/Mail', {
             method: 'POST',
