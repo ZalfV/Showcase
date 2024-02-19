@@ -1,0 +1,39 @@
+.spinner-wrapper {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000021;
+}
+
+.spinner {
+    margin: auto;
+    margin-top: 49vh;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    border: 4.5px solid #0000;
+    border-radius: 50%;
+    border-right-color: var(--accent);
+    animation: spinner 1s infinite linear;
+}
+
+.spinner::before,
+.spinner::after {
+   content: "";
+   grid-area: 1/1;
+   margin: 2.2px;
+   border: inherit;
+   border-radius: 50%;
+   animation: spinner 2s infinite;
+}
+
+.spinner::after {
+   margin: 8.9px;
+   animation-duration: 3s;
+}
+
+@keyframes spinner {
+   100% {
+      transform: rotate(1turn);
+   }
+}

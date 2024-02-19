@@ -20,7 +20,6 @@ body {
     overflow-x: hidden;
     /* background: linear-gradient(to bottom, transparent 50%, var(--background) 50%),
                 linear-gradient(to right, var(--background-soft) 50%, var(--background) 50%); */
-    background-color: var(--background);
     color: var(--text);
     background-size: 10px 10px;
     height: 100%;
