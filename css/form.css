@@ -1,11 +1,15 @@
 .contact {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+.contact-title {
+    margin: auto;
 }
 .contact-form {
     display: flex;
     flex-direction: column;
     max-width: 600px;
+    margin: auto;
 }
 .contact-form input, .contact-form textarea {
     min-height: 40px;
@@ -26,4 +30,13 @@
 .right {
     justify-content: right;
     margin-right: 5px;
+}
+.contact-footer {
+    display: flex;
+    justify-content: center;
+    background-color: var(--background-soft);
+    width: 100vw;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
 }
