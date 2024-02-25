@@ -94,6 +94,14 @@ header h1 {
     background: #747474;
 }
 
+.portfolio-image {
+    aspect-ratio: 1/1;
+    max-width: 200px;
+    border: 2px solid var(--text);
+    border-radius: 36%;
+    margin: 10px auto;
+}
+
 .contact-list {
     display: flex;
     flex-direction: row;

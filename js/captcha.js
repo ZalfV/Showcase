@@ -1,13 +1,11 @@
 $(document).ready(function() {
     generateCaptcha();
-    // Clear visuals after filling captcha
-    captchaVisual();
     // Maybe remove cuz it triggers flashmessage
-    unlockSubmit();
+    checkSubmit();
 
     $(".captcha-input").on("input", function() {captchaVisual();});
     $(".captcha-confirm").on("click", function() {
-        if (captchaCheck()) {
+        if (captchaCheck() && formFieldsCheck()) {
             unlockSubmit();
         } else {
             flashIncorrect(3000, $(".flash-message"));
@@ -45,21 +43,23 @@ function captchaCheck() {
     return ($(".captcha")[0].innerHTML == $(".captcha-input")[0].value)? true : false;
 }
 
-// Runs every input
-function captchaVisual() {
-    (captchaCheck())? $(".captcha").css({"border-color": "green"}) : $(".captcha").css({"border-color": "firebrick"});
-}
+// Runs every input, disabled to protect against bots
+// function captchaVisual() {
+//     (captchaCheck())? $(".captcha").css({"border-color": "green"}) : $(".captcha").css({"border-color": "firebrick"});
+// }
 
 // Runs only when captcha button is pressed
 function unlockSubmit() {
-    if (formFieldsCheck()) {
-        $(".form-submit")[0].disabled = false;
-    } else { 
-        $(".form-submit")[0].disabled = true;
-        flashIncorrect(3000, $(".flash-message"));
-        // change so captcha check and submit are same button
-        generateCaptcha();
-        captchaVisual();
+    $(".form-submit")[0].disabled = false;
+}
+function lockSubmit() {
+    $(".form-submit")[0].disabled = true;
+}
+function checkSubmit() {
+    if (captchaCheck() && formFieldsCheck()) {
+        unlockSubmit();
+    } else {
+        lockSubmit();
     }
 }
 

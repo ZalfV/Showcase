@@ -16,6 +16,9 @@
     border: 1px solid var(--text);
     border-radius: 8px;
 }
+.contact-form textarea {
+    resize: vertical;
+}
 .form-row {
     display: flex;
     flex-direction: row;

@@ -86,14 +86,9 @@ function flashIncorrect() {
 
 function flashMailError() {
     // Fill error message
-    $(".error-contact-message")[0].innerHTML = "Onverwachte error ontstaan, mail niet verstuurd.";
-    $(".error-contact-message").show();
+    $(".flash-message")[0].innerHTML = "Onverwachte error ontstaan, mail niet verstuurd. Probeer later opnieuw";
+    $(".flash-message").show();
     // Timer for hiding flash message
-    startFlashTimer(3000, $(".flash-message"))
-}
-
-// Asynchronous function to create a timer
-async function startFlashTimer(timeInMs) {
     startFlashTimer(3000, $(".flash-message"))
 }
 

@@ -1,3 +1,8 @@
+let themeIndex = 0;
+
+// r,g,b,orange,purple
+const colors = ["#FF3333","#88e524","#33BFFF","#FF5733","#B533FF"];
+
 $(document).ready(function() {
     initDarkMode();
     initAccentTheme();
@@ -10,12 +15,10 @@ $(document).ready(function() {
     $('.body').on('click', ".button-theme", function() {
         changeAccentTheme();
     });
-    // slideTimer;
+
+    themeIndex = (localStorage.getItem("accentTheme") != null)? parseInt(localStorage.getItem("accentTheme")) : 0;
 })
 
-let themeIndex = 1;
-// r,g,b,orange,purple
-let colors = ["#FF3333","#88e524","#33BFFF","#FF5733","#B533FF"];
 
 function initDarkMode() {
     // if no local theme saved create new one
