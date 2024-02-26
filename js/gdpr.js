@@ -26,11 +26,6 @@ class GDPR {
             this.showContent();
             this.hideGDPR();
         });
-
-
-//student uitwerking
-
-
     }
 
     showContent() {
@@ -44,9 +39,6 @@ class GDPR {
     resetContent(){
         const classes = [
             '.content-gdpr-accept',
-
-//student uitwerking
-
             '.content-gdpr-not-chosen'];
 
         for(const c of classes){
@@ -72,16 +64,10 @@ class GDPR {
     }
 
     cookieStatus(status) {
-
         if (status) localStorage.setItem('gdpr-consent-choice', status);
-
-//student uitwerking
 
         return localStorage.getItem('gdpr-consent-choice');
     }
-
-//student uitwerking
-
 
     hideGDPR(){
         document.querySelector(`.gdpr-consent`).classList.add('hide');
