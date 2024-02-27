@@ -3,7 +3,7 @@ $(document).ready(function() {
     // Maybe remove cuz it triggers flashmessage
     checkSubmit();
 
-    $(".captcha-input").on("input", function() {captchaVisual();});
+    // $(".captcha-input").on("input", function() {captchaVisual();});
     $(".captcha-confirm").on("click", function() {
         if (captchaCheck() && formFieldsCheck()) {
             unlockSubmit();

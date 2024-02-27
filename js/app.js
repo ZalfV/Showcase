@@ -48,6 +48,14 @@ function formFieldsCheck() {
     for(let field in formContent) {
         formContent[field] = sanitizeInput(formContent[field]);
         
+        if (field.includes("mail")) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (formContent[field].length < 5 && !emailRegex.test(formContent[field])) {
+                allFieldCorrect = false;
+            }
+        }
+
         if (!checkField(formContent[field])) {
             allFieldCorrect = false
             // Insert field value into array
@@ -128,7 +136,7 @@ function flashMessage(statusCode, statusMessage) {
 
     $(".flash-message")[0].innerHTML = message;
     $(".flash-message").show();
-    startFlashTimer(3000, $("flash-message"));
+    startFlashTimer(3000, $(".flash-message"));
 }
 
 async function safegaurdFields() {
