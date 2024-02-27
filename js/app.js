@@ -48,20 +48,11 @@ function formFieldsCheck() {
     for(let field in formContent) {
         formContent[field] = sanitizeInput(formContent[field]);
 
-        if (field.includes("phone") || field.includes("mail")) {
-            if (!formatCorrect(field, formContent[field])) {
-                allFieldCorrect = false;
-                
-                // Insert field value into array
-                incorrectFields.push($("#"+field)[0].getAttribute("placeholder"));
-            }
-        }
-
-        if (!checkField(formContent[field])) {
+        if (!checkField(formContent[field]) || !formatCorrect(field, formContent[field])) {
             allFieldCorrect = false
             
             // Insert field value into array
-            incorrectFields.push($("#"+field)[0].getAttribute("placeholder"));
+            incorrectFields.push($("#"+field)[0]);
         }
     }
 
@@ -90,9 +81,9 @@ function formatCorrect(fieldName, fieldValue) {
         if (fieldValue.length < 5 && !emailRegex.test(fieldValue)) {
             return false;
         }
-    
-        return true;
     }
+
+    return true;
 }
 
 function flashIncorrect() {
@@ -101,7 +92,7 @@ function flashIncorrect() {
     // If captcha is not correct don't input fields into error message
     if (captchaCheck() && incorrectFields.length > 0) {
         for (let incorrectField in incorrectFields) {
-            errorMessage += "<li>" + incorrectFields[incorrectField] + " is niet goed ingevuld </li>";
+            errorMessage += "<li>" + incorrectFields[incorrectField].getAttribute("placeholder") + " is niet goed ingevuld </li>";
         }
     
         // Reset incorrect fields

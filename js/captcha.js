@@ -1,7 +1,5 @@
 $(document).ready(function() {
     generateCaptcha();
-    // Maybe remove cuz it triggers flashmessage
-    checkSubmit();
 
     // $(".captcha-input").on("input", function() {captchaVisual();});
     $(".captcha-confirm").on("click", function() {
@@ -37,6 +35,9 @@ function generateCaptcha() {
  
     // Store generated input
     captcha.innerHTML = uniquechar;    
+
+    // Reset submit on generating new captcha
+    checkSubmit();
 }
 
 function captchaCheck() {
