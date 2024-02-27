@@ -53,14 +53,14 @@ function formFieldsCheck() {
             
             // Insert field value into array
             incorrectFields.push($("#"+field)[0]);
+
+            $("#"+field)[0].style = "border-color: firebrick;";
+        } else {
+            $("#"+field)[0].style = "border-color: var(--text);";
         }
     }
 
-    if (allFieldCorrect) {
-        return true;
-    } else {
-        return false;
-    };
+    return (allFieldCorrect)? true : false;
 }
 
 // Is field correctly formatted
