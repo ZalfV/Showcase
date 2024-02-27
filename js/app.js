@@ -73,14 +73,20 @@ function checkField(fieldValue) {
 }
 
 function formatCorrect(fieldName, fieldValue) {
-    if (fieldName.includes("phone")) {
-        return !isNaN(parseInt(fieldValue));
+    if (fieldName.includes("phone") && !isNaN(parseInt(fieldValue))) {
+        const phoneRegex = /^(+31\s?|0)([()\s-]?\d\s?){9,19}$/;
+        
+        return (phoneRegex.test(fieldValue))?true : false; 
     } else if (fieldName.includes("mail")) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
         if (fieldValue.length < 5 && !emailRegex.test(fieldValue)) {
             return false;
         }
+    } else if (fieldName.includes("subject")) {
+        return (fieldValue.length < 200)? true : false;
+    } else if (fieldName.includes("body")) {
+        return (fieldValue.length < 600)? true : false;
     }
 
     return true;

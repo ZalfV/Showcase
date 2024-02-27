@@ -13,7 +13,7 @@
 }
 .contact-form input, .contact-form textarea {
     min-height: 40px;
-    border: 2px solid var(--text);
+    border: 1px solid var(--text);
     border-radius: 8px;
 }
 .contact-form textarea {
