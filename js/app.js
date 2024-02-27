@@ -47,20 +47,22 @@ function formFieldsCheck() {
 
     for(let field in formContent) {
         formContent[field] = sanitizeInput(formContent[field]);
-        
-        if (field.includes("mail")) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            if (formContent[field].length < 5 && !emailRegex.test(formContent[field])) {
+        if (field.includes("phone") || field.includes("mail")) {
+            if (!formatCorrect(field, formContent[field])) {
                 allFieldCorrect = false;
+                
+                // Insert field value into array
+                incorrectFields.push($("#"+field)[0].getAttribute("placeholder"));
             }
         }
 
         if (!checkField(formContent[field])) {
             allFieldCorrect = false
+            
             // Insert field value into array
             incorrectFields.push($("#"+field)[0].getAttribute("placeholder"));
-        };
+        }
     }
 
     if (allFieldCorrect) {
@@ -68,6 +70,29 @@ function formFieldsCheck() {
     } else {
         return false;
     };
+}
+
+// Is field correctly formatted
+function checkField(fieldValue) {
+    if (fieldValue.length < 1) {
+        return false;
+    }
+
+    return true;
+}
+
+function formatCorrect(fieldName, fieldValue) {
+    if (fieldName.includes("phone")) {
+        return !isNaN(parseInt(fieldValue));
+    } else if (fieldName.includes("mail")) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+        if (fieldValue.length < 5 && !emailRegex.test(fieldValue)) {
+            return false;
+        }
+    
+        return true;
+    }
 }
 
 function flashIncorrect() {
@@ -104,14 +129,6 @@ function flashMailError() {
 async function startFlashTimer(timeInMs, element) {
     await new Promise(resolve => setTimeout(resolve, timeInMs));
     element.hide();
-}
-
-// Is field correctly formatted
-function checkField(fieldValue) {
-    if (fieldValue.length > 1) {
-        return true;
-    }
-    return false;
 }
 
 function sanitizeInput(input) {
